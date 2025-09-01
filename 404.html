@@ -1,49 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- 
-      This is an HTML comment
-      You can write text in a comment and the content won't be visible in the page
-    -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b5fff">
+  <title>Immigration Hub</title>
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="https://glitch.com/favicon.ico" />
+  <!-- iOS install / PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Immigration Hub">
+  <!-- Hosted touch-icon so you don’t have to upload images -->
+  <link rel="apple-touch-icon" href="https://fav.farm/🛂">
+  <link rel="icon" href="https://fav.farm/🛂">
 
-    <!--
-      This is the page head - it contains info the browser uses
-      Like the title, which appears on the browser tab but not inside the page
-      Further down you'll see the content that displays in the page
-    -->
-    <title>404!</title>
+  <style>
+    /* Keep your existing light theme styles here. Minor mobile polish below. */
+    :root{ --safe:env(safe-area-inset-bottom,0); }
+    button, a.btn { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+    .tabs { position: sticky; top: 0; z-index: 5; background: #fff; padding-bottom: 8px; }
+    .btn { min-height: 44px; }
+    footer { padding-bottom: calc(var(--safe) + 16px); }
+  </style>
+</head>
+<body>
+  <!-- Keep your current header/hero/tabs and main content from the canvas build here -->
+  <!-- If you prefer, paste the entire “Immigration Hub – Light Themed Single-File Build” content here. -->
 
-    <!-- The website stylesheet -->
-    <link rel="stylesheet" href="/style.css" />
-
-    <!-- The website JavaScript file -->
-    <script src="/script.js" defer></script>
-  </head>
-  <body>
-    <!--
-      The body includes the content you see in the page
-      Each element is defined using tags, like this <div></div>
-      The attributes like class="wrapper" let us style elements in the CSS
-    -->
-    <div class="wrapper">
-      <div class="content" role="main">
-        <h1 class="title">404 Not Found 😭</h1>
-        <img
-          src="/cool-website.svg"
-          class="illustration-404"
-          alt="not so cool website"
-        />
-        <div class="instructions">
-          <p>
-            WELP this page couldn't be found – <a href="/">go to the homepage</a>
-          </p>
-
-        </div>
-      </div>
-    </div>
-  </body>
+  <!-- Service worker registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js').catch(console.error);
+      });
+    }
+  </script>
+</body>
 </html>
